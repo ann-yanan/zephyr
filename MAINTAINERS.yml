@@ -5720,6 +5720,13 @@ West:
   labels:
     - "platform: Intel ISH"
 
+"West project: hal_xuantie":
+  status: maintained
+  files:
+    - modules/Kconfig.xuantie
+  labels:
+    - "platform: xuantie"
+
 "West project: hal_microchip":
   status: maintained
   maintainers:
