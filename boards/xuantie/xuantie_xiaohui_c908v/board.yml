@@ -1,0 +1,7 @@
+board:
+  name: xuantie_xiaohui_c908v
+  vendor: xuantie
+  socs:
+  - name: riscv_xiaohui
+    variants:
+    - name: smp
