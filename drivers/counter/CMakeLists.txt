@@ -13,6 +13,7 @@ zephyr_library_sources_ifdef(CONFIG_COUNTER_SHELL counter_timer_shell.c)
 zephyr_library_sources_ifdef(CONFIG_USERSPACE counter_handlers.c)
 
 # zephyr-keep-sorted-start
+zephyr_library_sources_ifdef(CONFIG_COUNTER_XUANTIE counter_xuantie.c)
 zephyr_library_sources_ifdef(CONFIG_ACE_V1X_ART_COUNTER counter_ace_v1x_art.c)
 zephyr_library_sources_ifdef(CONFIG_ACE_V1X_RTC_COUNTER counter_ace_v1x_rtc.c)
 zephyr_library_sources_ifdef(CONFIG_COUNTER_AMBIQ counter_ambiq_timer.c)
