@@ -134,8 +134,15 @@ list(APPEND RISCV_C_FLAGS
      -march=${riscv_march}
      -mcmodel=${riscv_mcmodel}
      )
-list(APPEND TOOLCHAIN_C_FLAGS ${RISCV_C_FLAGS})
-list(APPEND TOOLCHAIN_GROUPED_LD_FLAGS RISCV_C_FLAGS)
+
+### FIXME: @dongl: Temporarily used before the xuantie toolchain is merged into sdk-ng
+if (CONFIG_CPU_XUANTIE_RISCV)
+  list(APPEND TOOLCHAIN_C_FLAGS -mcpu=${CONFIG_XUANTIE_CPU_NAME})
+  list(APPEND TOOLCHAIN_LD_FLAGS NO_SPLIT -mcpu=${CONFIG_XUANTIE_CPU_NAME})
+else()
+  list(APPEND TOOLCHAIN_C_FLAGS ${RISCV_C_FLAGS})
+  list(APPEND TOOLCHAIN_GROUPED_LD_FLAGS RISCV_C_FLAGS)
+endif()
 
 # Flags not supported by llext linker
 # (regexps are supported and match whole word)
