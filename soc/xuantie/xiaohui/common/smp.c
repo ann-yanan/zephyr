@@ -69,7 +69,7 @@ int pm_cpu_on(unsigned long cpuid, uintptr_t entry_point)
 
 	xuantie_csr_copy();
 	*(unsigned long *)((unsigned long)XIAOHUI_SRESET_BASE + XIAOHUI_SRESET_ADDR_OFFSET +
-						((cpu_num - 1) << 3)) = (unsigned long)entry_point;
+					   ((cpu_num - 1) << 3)) = (unsigned long)entry_point;
 	__asm__ volatile("fence" ::: "memory");
 	mrmr = *(uint32_t *)(XIAOHUI_SRESET_BASE);
 	*(uint32_t *)(XIAOHUI_SRESET_BASE) = mrmr | (0x1 << (cpu_num - 1));
