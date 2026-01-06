@@ -13,6 +13,10 @@
 #include <zephyr/drivers/pm_cpu_ops.h>
 #include <zephyr/platform/hooks.h>
 
+#if CONFIG_ARCH_RISCV_HAS_CUSTOM
+#include <riscv_custom.h>
+#endif
+
 volatile struct {
 	arch_cpustart_t fn;
 	void *arg;
@@ -59,6 +63,9 @@ void arch_secondary_cpu_init(int hartid)
 			cpu_num = i;
 		}
 	}
+#if defined(CONFIG_ARCH_RISCV_HAS_CUSTOM)
+    riscv_soc_init_cpu(hartid);
+#endif
 	csr_write(mscratch, &_kernel.cpus[cpu_num]);
 #ifdef CONFIG_SMP
 	_kernel.cpus[cpu_num].arch.online = true;
