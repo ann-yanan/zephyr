@@ -1,0 +1,6 @@
+family:
+  - name: riscv_family
+    series:
+      - name: xiaohui
+        socs:
+          - name: riscv_xiaohui

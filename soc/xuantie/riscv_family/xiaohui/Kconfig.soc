@@ -1,0 +1,12 @@
+# Copyright (c) 2020 Cobham Gaisler AB
+# Copyright (C) 2017-2024 Alibaba Group Holding Limited
+# SPDX-License-Identifier: Apache-2.0
+
+choice
+	prompt "RISC-V XUANTIE XIAOHUI FPGA Board"
+	depends on SOC_SERIES_XUANTIE_RISCV_XIAOHUI
+
+config SOC_XUANTIE_RISCV_XIAOHUI
+	bool "RISC-V XUANTIE XIAOHUI FPGA Board"
+
+endchoice
